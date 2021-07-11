@@ -10,14 +10,22 @@ var pointsLayer = new ol.layer.VectorImage({
     title: 'points'
 });
 
+var distance = document.getElementById('distance');
+
+var count = 20000;
+var features = new Array(count);
+var e = 4500000;
+for (var i = 0; i < count; ++i) {
+  var coordinates = [2 * e * Math.random() - e, 2 * e * Math.random() - e];
+  features[i] = new ol.Feature(new ol.geom.Point(coordinates));
+}
+
 var source = new ol.source.Vector({
-    url: 'static/points.geojson',
-    format: new ol.format.GeoJSON(),
-    projection: 'EPSG:3857'
+  features: features,
 });
 
 var clusterSource = new ol.source.Cluster({
-  distance: 30,
+  distance: parseInt(distance.value, 10),
   source: source,
 });
 
@@ -59,11 +67,10 @@ var map = new ol.Map({
   layers: [openStreetMap, clusters],
   target: 'map',
   view: new ol.View({
-    maxZoom: 12,
-    minZoom: 5,
+    maxZoom: 8,
+    minZoom: 1,
     center: [1148508, 6700000],
     zoom: 6,
-    extent: [200000, 5500000, 3000000, 8500000],
   }),
 });
 
