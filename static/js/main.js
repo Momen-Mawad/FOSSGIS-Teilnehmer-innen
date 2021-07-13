@@ -28,23 +28,36 @@ var clusters = new ol.layer.Vector({
     var size = feature.get('features').length;
     var style = styleCache[size];
     if (!style) {
-      style = new ol.style.Style({
-        image: new ol.style.Circle({
-          radius: 10,
-          stroke: new ol.style.Stroke({
-            color: '#fff',
+      if (size === 1) {
+        style = new ol.style.Style({
+          image: new ol.style.Icon({
+            src: 'static/photos/location.png',
+            scale: 0.5,
+          })
+        });
+      } else {
+        style = new ol.style.Style({
+          image: new ol.style.Circle({
+            radius: (function(){
+              if (size >= 2 && size < 4) return 10
+              else if (size >= 4 && size < 6) return 15
+              else if (size >= 6 && size < 11) return 20
+              else return 25
+            }()),
+            stroke: new ol.style.Stroke({
+              color: '#fff',
+            }),
+            fill: new ol.style.Fill({
+              color: '#3399CC',
+            }),
           }),
-          fill: new ol.style.Fill({
-            color: '#3399CC',
+          text: new ol.style.Text({
+            text: size.toString(),
+            fill: new ol.style.Fill({
+              color: '#fff',
+            }),
           }),
-        }),
-        text: new ol.style.Text({
-          text: size.toString(),
-          fill: new ol.style.Fill({
-            color: '#fff',
-          }),
-        }),
-      });
+        })};
       styleCache[size] = style;
     }
     return style;
