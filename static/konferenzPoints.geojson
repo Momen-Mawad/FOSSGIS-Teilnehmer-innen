@@ -1,0 +1,22 @@
+{
+"type": "FeatureCollection",
+"name": "konferenzPoints",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "Ort": "Rapperswil", "Jahr": 2021 }, "geometry": { "type": "Point", "coordinates": [ 982360.731796807027422, 5979042.164159132167697 ] } },
+{ "type": "Feature", "properties": { "Ort": "Freiburg", "Jahr": 2020 }, "geometry": { "type": "Point", "coordinates": [ 873692.042636779719032, 6106002.526349532417953 ] } },
+{ "type": "Feature", "properties": { "Ort": "Dresden", "Jahr": 2019 }, "geometry": { "type": "Point", "coordinates": [ 1528999.881464033154771, 6630046.991511006839573 ] } },
+{ "type": "Feature", "properties": { "Ort": "Bonn", "Jahr": 2018 }, "geometry": { "type": "Point", "coordinates": [ 790211.2093638216611, 6575483.635115777142346 ] } },
+{ "type": "Feature", "properties": { "Ort": "Passau", "Jahr": 2017 }, "geometry": { "type": "Point", "coordinates": [ 1498487.931346529396251, 6203017.441333751194179 ] } },
+{ "type": "Feature", "properties": { "Ort": "Salzburg", "Jahr": 2016 }, "geometry": { "type": "Point", "coordinates": [ 1449634.373291573254392, 6073069.594185456633568 ] } },
+{ "type": "Feature", "properties": { "Ort": "Münster", "Jahr": 2015 }, "geometry": { "type": "Point", "coordinates": [ 852006.517818504711613, 6793668.184962790459394 ] } },
+{ "type": "Feature", "properties": { "Ort": "Berlin", "Jahr": 2014 }, "geometry": { "type": "Point", "coordinates": [ 1490098.866957562975585, 6896954.23551856726408 ] } },
+{ "type": "Feature", "properties": { "Ort": "Rapperswil", "Jahr": 2013 }, "geometry": { "type": "Point", "coordinates": [ 982384.838303670985624, 5979043.886052469722927 ] } },
+{ "type": "Feature", "properties": { "Ort": "Dessau", "Jahr": 2012 }, "geometry": { "type": "Point", "coordinates": [ 1362845.782898088684306, 6769625.388151803053916 ] } },
+{ "type": "Feature", "properties": { "Ort": "Heidelberg", "Jahr": 2011 }, "geometry": { "type": "Point", "coordinates": [ 967681.591009463183582, 6344607.009404415264726 ] } },
+{ "type": "Feature", "properties": { "Ort": "Osnabrück", "Jahr": 2010 }, "geometry": { "type": "Point", "coordinates": [ 896567.395758169936016, 6850327.085561914369464 ] } },
+{ "type": "Feature", "properties": { "Ort": "Hannover", "Jahr": 2009 }, "geometry": { "type": "Point", "coordinates": [ 1086016.989422292914242, 6867601.119623922742903 ] } },
+{ "type": "Feature", "properties": { "Ort": "Freiburg", "Jahr": 2008 }, "geometry": { "type": "Point", "coordinates": [ 873907.279305216739886, 6105897.490855323150754 ] } },
+{ "type": "Feature", "properties": { "Ort": "Berlin", "Jahr": 2007 }, "geometry": { "type": "Point", "coordinates": [ 1490086.813704130472615, 6896859.531384446658194 ] } }
+]
+}

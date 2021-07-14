@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,height=device-height initial-scale=1">
     <title>Woher kommen die FOSSGIS-Konferenz Teilnehmer:innen?</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/ol.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='photos/icon.png') }}">
 </head>
 
 <body>
+    <div id="tools" class="tools">
+        <label for="years-select" class="tool">Standort der FOSSGIS-Konferenz:</label>
+        <select id="years-select"></select>
+    </div>
     <div id="map" class="map"></div>
     <script src="{{ url_for('static', filename='js/ol.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
