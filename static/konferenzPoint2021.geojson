@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "konferenzPoint2021",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "Ort": "Rapperswil", "Jahr": 2021 }, "geometry": { "type": "Point", "coordinates": [ 982360.731796807027422, 5979042.164159132167697 ] } },
+{ "type": "Feature", "properties": { "Ort": "Rapperswil", "Jahr": 2013 }, "geometry": { "type": "Point", "coordinates": [ 982384.838303670985624, 5979043.886052469722927 ] } }
+]
+}
