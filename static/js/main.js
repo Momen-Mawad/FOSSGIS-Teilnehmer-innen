@@ -1,3 +1,6 @@
+var yearsList = [2021, 2020]
+var fillColor = ['#5681c7', '#83d4b1']
+
 var conferenceSource = new ol.source.Vector({
   url: 'static/konferenzPoints.geojson',
   format: new ol.format.GeoJSON(),
@@ -48,9 +51,9 @@ var map = new ol.Map({
 });
 
 
-for (var i = 2020; i < 2022; i++) {
+for (let j = 0; j < yearsList.length; j++) {
     var sourcePoints = new ol.source.Vector({
-        url: `static/points${i}.geojson`,
+        url: `static/points${yearsList[j]}.geojson`,
         format: new ol.format.GeoJSON(),
         projection: 'EPSG:3857'
     });
@@ -59,48 +62,43 @@ for (var i = 2020; i < 2022; i++) {
       distance: 30,
       source: sourcePoints,
     });
+    var fill = new ol.style.Fill({color: fillColor[j],})
 
     var styleCache = {};
     var cluster = new ol.layer.Vector({
-      source: clusterSource,
-      visible: false,
-      style: function (feature) {
-        var size = feature.get('features').length;
-        var style = styleCache[size];
-        if (!style) {
-          style = new ol.style.Style({
-            image: new ol.style.Circle({
-              radius: (function(){
-              if (size == 1) return 5
-              else if (size >= 2 && size < 4) return 10
-              else if (size >= 4 && size < 6) return 15
-              else if (size >= 6 && size < 11) return 20
-              else return 25
-              }()),
-              stroke: new ol.style.Stroke({
-                color: '#fff',
-              }),
-              fill: new ol.style.Fill({
-                color: '#3399CC',
-              }),
-            }),
-            text: (function(){
-              if (size == 1) return null
-              else {text = new ol.style.Text({
-                text: size.toString(),
-                fill: new ol.style.Fill({
-                  color: '#fff',
-                }),
-              })}
-            return text
-            }()),
-          });
-          styleCache[size] = style;
-        }
+        source: clusterSource,
+        visible: false,
+        style: function (feature) {
+            var size = feature.get('features').length;
+            const color = feature.get('features')[0].get('color');
+            console.log(color);
+                style = new ol.style.Style({
+                    image: new ol.style.Circle({
+                        radius: (function(){
+                        if (size == 1) return 5
+                            else if (size >= 2 && size < 4) return 10
+                            else if (size >= 4 && size < 6) return 15
+                            else if (size >= 6 && size < 11) return 20
+                            else return 25
+                        }()),
+                        stroke: new ol.style.Stroke({color: '#fff',}),
+                        fill: fill = new ol.style.Fill({color:color,}),
+                    }),
+                    text: (function(){
+                        if (size == 1) return null
+                        else {text = new ol.style.Text({
+                            text: size.toString(),
+                            fill: new ol.style.Fill({
+                            color: '#fff',
+                            }),
+                        })}
+                        return text
+                    }()),
+                });
         return style
-      }
-    })
-    cluster.set('name', i)
+        }
+    });
+    cluster.set('name', yearsList[j]);
     map.addLayer(cluster);
 };
 
@@ -133,7 +131,7 @@ yearSelect.addEventListener("change", function(){
     conferenceLocation2021.setVisible(false);
     showConferenceLocation();
     map.getLayers().forEach(function(layer) {
-        name =layer.get('name')
+        name = layer.get('name')
         if (Number.isInteger(layer.get('name'))) {
             layer.setVisible(false);
         };
