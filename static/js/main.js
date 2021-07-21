@@ -1,5 +1,5 @@
-var yearsList = [2021, 2020]
-var fillColor = ['#5681c7', '#83d4b1']
+var yearsList = [2021, 2020, 2019]
+var fillColor = ['#5681c7', '#83d4b1', '#03dbfc']
 
 var conferenceSource = new ol.source.Vector({
   url: 'static/konferenzPoints.geojson',
@@ -18,7 +18,7 @@ var conferenceStyle = new ol.style.Style({
         src: 'static/photos/location.png',
         scale: 0.5
       })
-    });
+});
 
 var conferenceLocation = new ol.layer.VectorImage({
     source: conferenceSource,
@@ -70,8 +70,6 @@ for (let j = 0; j < yearsList.length; j++) {
         visible: false,
         style: function (feature) {
             var size = feature.get('features').length;
-            const color = feature.get('features')[0].get('color');
-            console.log(color);
                 style = new ol.style.Style({
                     image: new ol.style.Circle({
                         radius: (function(){
@@ -82,7 +80,7 @@ for (let j = 0; j < yearsList.length; j++) {
                             else return 25
                         }()),
                         stroke: new ol.style.Stroke({color: '#fff',}),
-                        fill: fill = new ol.style.Fill({color:color,}),
+                        fill: fill = new ol.style.Fill({color:fillColor[j],}),
                     }),
                     text: (function(){
                         if (size == 1) return null
