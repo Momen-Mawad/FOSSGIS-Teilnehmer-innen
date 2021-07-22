@@ -1,5 +1,5 @@
-var yearsList = [2021, 2020, 2019]
-var fillColor = ['#5681c7', '#83d4b1', '#03dbfc']
+var yearsList = [2021, 2020, 2019, 2018]
+var fillColor = ['#5681c7', '#83d4b1', '#03dbfc', '#9003fc']
 
 var conferenceSource = new ol.source.Vector({
   url: 'static/konferenzPoints.geojson',
@@ -105,7 +105,7 @@ map.addLayer(conferenceLocation2021);
 
 
 yearSelect = document.getElementById('years-select');
-for ( i = 2021; i >= 2007; i -= 1 ) {
+for ( i = 2021; i >= 2013; i -= 1 ) {
     option = document.createElement('option');
     option.value = option.text = i;
     yearSelect.add( option );
