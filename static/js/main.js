@@ -1,5 +1,5 @@
-var yearsList = [2021, 2020, 2019, 2018]
-var fillColor = ['#5681c7', '#83d4b1', '#03dbfc', '#9003fc']
+var yearsList = [2021, 2020, 2019, 2018, 2017, 2015, 2014]
+var fillColor = ['#5681c7', '#83d4b1', '#03dbfc', '#9003fc', '#ff4570', '#419684', '#899641']
 
 var conferenceSource = new ol.source.Vector({
   url: 'static/konferenzPoints.geojson',
@@ -49,7 +49,6 @@ var map = new ol.Map({
     extent: [-300000, 5000000, 3000000, 8500000],
   }),
 });
-
 
 for (let j = 0; j < yearsList.length; j++) {
     var sourcePoints = new ol.source.Vector({
@@ -103,7 +102,6 @@ for (let j = 0; j < yearsList.length; j++) {
 map.addLayer(conferenceLocation);
 map.addLayer(conferenceLocation2021);
 
-
 yearSelect = document.getElementById('years-select');
 for ( i = 2021; i >= 2013; i -= 1 ) {
     option = document.createElement('option');
@@ -122,7 +120,6 @@ function showConferenceLocation(){
             featuresConference[i].setStyle(new ol.style.Style(null));
         };
     };
-
 };
 
 yearSelect.addEventListener("change", function(){
