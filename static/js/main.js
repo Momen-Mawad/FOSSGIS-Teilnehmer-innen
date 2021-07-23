@@ -1,5 +1,5 @@
-var yearsList = [2021, 2020, 2019, 2018, 2017, 2015, 2014]
-var fillColor = ['#5681c7', '#83d4b1', '#03dbfc', '#9003fc', '#ff4570', '#419684', '#899641']
+var yearsList = [2021, 2020, 2019, 2018, 2017, 2015, 2014, 2013]
+var fillColor = ['#5681c7', '#83d4b1', '#03dbfc', '#9003fc', '#ff4570', '#419684', '#899641', '#78415c']
 
 var conferenceSource = new ol.source.Vector({
   url: 'static/konferenzPoints.geojson',
@@ -43,10 +43,10 @@ var map = new ol.Map({
   target: 'map',
   view: new ol.View({
     maxZoom: 12,
-    minZoom: 6,
+    minZoom: 5,
     center: [1148508, 6700000],
-    zoom: 6,
-    extent: [-300000, 5000000, 3000000, 8500000],
+    zoom: 5,
+    extent: [-1000000, 4000000, 4000000, 9000000],
   }),
 });
 
